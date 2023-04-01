@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container  border border-dark" style="width: 40%; background-color: rgb(117, 125, 125);">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h1 align="center">Register</h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="flashes" style="text-decoration: none; color: rgb(129, 226, 213);">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+            <form method="post" action="{{ url_for('signup') }}">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+        </div>
+    </div>
+    {% endblock %}

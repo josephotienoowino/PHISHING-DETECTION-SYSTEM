@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container  border border-dark" style="width: 40%; background-color: rgb(117, 125, 125);">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h1 align="center">Login</h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+
+            <div class="flashes" style="text-decoration: none; color: rgb(129, 226, 213);">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+            <form method="post" action="{{ url_for('login') }}">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+
+    </div>
+    {% endblock %}
