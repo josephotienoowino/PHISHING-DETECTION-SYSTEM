@@ -51,7 +51,9 @@
                         <input type="text" class="form__input" name='url' id="url" placeholder="Enter URL"
                             required="" />
                         <label for="url" class="form__label">URL</label>
+                        {%if session.get('user_id')%}
                         <button class="button" role="button">Check here</button>
+                        {%endif%}
                     </form>
 
                 </div>
